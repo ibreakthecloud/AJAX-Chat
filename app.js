@@ -19,15 +19,14 @@ document.getElementById("chats").scrollTop = document.getElementById("chats").sc
 function push()
 {
 	
-	 var name = document.getElementById('name').value;
-	 var msg = document.getElementById('msg').value;
+	 var name = document.getElementById('name').value.trim();
+	 var msg = document.getElementById('msg').value.trim();
 	 document.getElementById('msg').value = "";
- if (name == "" || name ==" ") 
+ if (name == null || name =="" && msg == null || msg == "") 
   {
-  	alert('Name cannot be left blank!');
+  	alert('Input Your Name and Message!');
 
   }
-
  else
   {
 	 	var chatPush = new XMLHttpRequest();
