@@ -13,6 +13,7 @@ chatRequest.onload = function() {
 };
 chatRequest.send();
 
+document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
 ////////////////////////////////////////////////////////
 
 function push()
@@ -20,6 +21,7 @@ function push()
 	
 	 var name = document.getElementById('name').value;
 	 var msg = document.getElementById('msg').value;
+	 document.getElementById('msg').value = "";
  if (name == "" || name ==" ") 
   {
   	alert('Name cannot be left blank!');
@@ -46,5 +48,6 @@ function push()
 		document.getElementById('chats').innerHTML = chatstr;
 		};
 		chatRequest.send();
+		document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
 	}
 }
