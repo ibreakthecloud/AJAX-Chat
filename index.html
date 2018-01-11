@@ -18,19 +18,25 @@
 	<title>Chatmon</title>
 </head>
 <body>
-	<div class="top-bar"> <!-- Topbar -->
-		Hello
+	
+	<div class="top-bar">
+		Header
 	</div>
 
 	<div class="container" style="width: 50%;">
 	<div class="form-group">
-		<textarea class = "form-control" id="chats" cols="50" rows="20" readonly ></textarea><br/> <!-- For All chats -->
-		<input class = "form-control" id = "name" type="text" name="name" size="8" placeholder="Name" required/>  <!-- For name -->
-		<input class = "form-control form-control-lg" id="msg" type="text" name="msg" size="41" placeholder="Your Message" /><br/>  <!-- For MSG -->
-		<input class="btn btn-danger" id = "btn" onclick="push()" type = "submit" value="send">
-	</div>
-	</div>
+		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly ></textarea><br/> <!-- For All chats -->
 
+		<div class="input bottom-round"> <!-- input shadow start -->
+
+		<input class = "form-control input" id = "name" type="text" name="name" size="8" placeholder="Name" required/>  <!-- For name -->
+		<input class = "form-control form-control-lg" id="msg" type="text" name="msg" size="41" placeholder="Your Message" /><br/>  <!-- For MSG -->
+		</div>
+		
+		<input class="btn btn-danger input inputs" id = "btn" onclick="push()" type = "submit" value="send">
+		 <!-- input shadow end -->
+	</div>
+	</div>
 
 
 

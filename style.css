@@ -3,7 +3,29 @@
 	top: 0px;
 	left: 0px;
 	right: 0px;
-	padding-bottom: 25px;
+	margin-bottom: 20px;
+	padding-bottom: 18px;
+	background-color: #6ee9f2;
+	-webkit-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
+	-moz-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
+	box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);	
 	 
+}
+
+.input
+{
+	-webkit-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
+	-moz-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
+	box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
+}
+.bottom-round
+{
+	border-bottom-left-radius: 1000px;
+	border-bottom-right-radius: 1000px;
+}
+
+body
+{
+	background-image: url(asset/images/bg.png);
 }
 
