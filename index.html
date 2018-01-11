@@ -13,9 +13,12 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+
 	<script src="app.js"></script>
 	<script src=""></script>
-	<title>Chatmon</title>
+	<title>Chatmoon</title>
 </head>
 <body>
 	
@@ -26,7 +29,7 @@
 	<div class="container" style="width: 50%;">
 	<div class="form-group">
 
-		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly ></textarea><br/> <!-- For All chats -->
+		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly ng-repeat="x in names"></textarea><br/> <!-- For All chats -->
 
 		<div class="input bottom-round"> <!-- input shadow start -->
 
@@ -39,8 +42,6 @@
 
 	</div>
 	</div>
-
-
 
 	
 </body>

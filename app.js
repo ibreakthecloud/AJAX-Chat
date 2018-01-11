@@ -1,3 +1,5 @@
+setInterval(refreshChat, 2000);
+
 
 var chatRequest = new XMLHttpRequest();
 var chatstr = '';
@@ -16,6 +18,24 @@ chatRequest.send();
 document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
 ////////////////////////////////////////////////////////
 
+function refreshChat(){
+    
+	var chatRequest = new XMLHttpRequest();
+	var chatstr = '';
+	chatRequest.open('GET','chat.json');
+	chatRequest.onload = function() {
+	var chatData = JSON.parse(chatRequest.responseText);
+	for(var key in chatData)
+	{
+		chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
+		 console.log(chatData[key]);
+	}
+	document.getElementById('chats').innerHTML = chatstr;
+};
+chatRequest.send();
+document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
+
+}
 
 ////////////////////////////////////////////////////////////
 
