@@ -3,4 +3,6 @@
 
 Chats are stored in JSON file
 
+OAuth login via Github
+
 
