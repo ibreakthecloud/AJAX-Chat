@@ -4,14 +4,18 @@
 	left: 0px;
 	right: 0px;
 	margin-bottom: 20px;
-	padding-bottom: 18px;
+	padding-bottom: 0px;
 	background-color: #6ee9f2;
 	-webkit-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
 	-moz-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);
 	box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);	
 	 
 }
-
+.top-bar-right
+{
+	right: -15px;
+	top: 20px;
+}
 .input
 {
 	-webkit-box-shadow: 18px 21px 63px 8px rgba(0,0,0,0.62);

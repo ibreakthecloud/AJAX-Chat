@@ -9,7 +9,7 @@ chatRequest.onload = function() {
 	for(var key in chatData)
 	{
 		chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
-		 console.log(chatData[key]);
+		 //console.log(chatData[key]);
 	}
 	document.getElementById('chats').innerHTML = chatstr;
 };
@@ -28,12 +28,12 @@ function refreshChat(){
 	for(var key in chatData)
 	{
 		chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
-		 console.log(chatData[key]);
+		 //console.log(chatData[key]);
 	}
 	document.getElementById('chats').innerHTML = chatstr;
 };
 chatRequest.send();
-document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
+//document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
 
 }
 
@@ -47,7 +47,7 @@ function push()
 	 document.getElementById('msg').value = "";
  if (name == null || name =="" && msg == null || msg == "") 
   {
-  	alert('Input Your Name and Message!');
+  	alert('Message Cannot be empty!');
 
   }
  else
