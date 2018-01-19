@@ -33,3 +33,16 @@ body
 	background-image: url(asset/images/bg.png);
 }
 
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-online {
+	background-color: #40ff00;
+}
+.dot-offline {
+	background-color: orange;
+}

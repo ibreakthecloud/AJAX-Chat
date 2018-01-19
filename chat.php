@@ -19,7 +19,8 @@ $imgURL = $_SESSION['imgURL'];
 <!DOCTYPE html>
 <html>
 <head>
-
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,19 +42,35 @@ $imgURL = $_SESSION['imgURL'];
 <body>
 	<div class="container">
 	<div class="row top-bar">
-		<div class="col-sm-6">
+		<div class="col-md-6">
 			&nbsp;<img class = "img-circle" src="<?php echo $imgURL ?>" height = "25%" width = "12%">
-		<!-- <div class="col-sm-4"> -->
+		<!-- <div class="col-md-4"> -->
 			<kbd>Hello, <?php echo $name; ?></kbd>
 		<!-- </div> -->
 		</div>
-		<div class="col-sm-4"></div>
-		<div class="col-sm-2 top-bar-right"><button class = "btn btn-danger" onclick="logout()"><i class="glyphicon glyphicon-log-out"></i> Logout!</button>
+		<div class="col-md-4"></div>
+		<div class="col-md-2 top-bar-right"><button class = "btn btn-danger" onclick="logout()"><i class="glyphicon glyphicon-log-out"></i> Logout!</button>
 		</div>
 	</div>
 	</div>
-	<div class="container" style="width: 50%;">
-	<div class="form-group">
+   
+	<div class="container">
+	<div class="row">
+
+	 <div class="col-md-2">
+	 	<!-- <div class="container"> -->
+			<!-- <h4><i class="input dot dot-online"></i> Online</h4> -->
+  			<div class="input panel panel-success">
+    			<div class="panel-heading"><h4><i class="dot dot-online"></i><i class="dot dot-offline"></i> Online</h4></div>
+    			
+    			<div class="panel-body"><i class="dot dot-online"></i> User 1</div>
+    			<div class="panel-body"><i class="dot dot-online"></i> User 2</div>
+  			</div>	 		
+	 	<!-- </div> -->
+	 </div> <!-- Empty Col 1 -->
+
+	 <div class="col-md-6">
+	 <div class="form-group">
 
 		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly ng-repeat="x in names"></textarea><br/> <!-- For All chats -->
 
@@ -65,10 +82,11 @@ $imgURL = $_SESSION['imgURL'];
 		
 		<input class="btn btn-danger input inputs" id = "btn" onclick="push()" type = "submit" value="send">
 		 <!-- input shadow end -->
-
-	</div>
-	</div>
-
+	 </div> <!-- form-group close -->
+	 </div><!--col-md-4 mid  -->
+	 <div class="col-md-4"><!-- Empty --></div>
+	</div> <!-- row close -->
+	</div> <!-- Div container -->
 <script type="text/javascript">
 	function logout() {
 		window.location.assign('logout.php');
