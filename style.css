@@ -31,6 +31,7 @@
 body
 {
 	background-image: url(asset/images/bg.png);
+	overflow-x:hidden;
 }
 
 .dot {
