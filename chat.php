@@ -42,7 +42,7 @@ $imgURL = $_SESSION['imgURL'];
 	<div class="container">
 	<div class="row top-bar">
 		<div class="col-sm-6">
-			&nbsp;<img src="<?php echo $imgURL ?>" height = "25%" width = "12%">
+			&nbsp;<img class = "img-circle" src="<?php echo $imgURL ?>" height = "25%" width = "12%">
 		<!-- <div class="col-sm-4"> -->
 			<kbd>Hello, <?php echo $name; ?></kbd>
 		<!-- </div> -->

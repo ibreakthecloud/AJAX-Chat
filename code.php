@@ -3,8 +3,8 @@ session_start();
 
 $code = $_GET['code'];
 $url = 'https://github.com/login/oauth/access_token';
-$client_id = 'xxxxxxxxxxxxxxxxxxxxxxx';
-$client_secret = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$client_id = '8f74c6a9b5f13e9b3b01';
+$client_secret = '22384f334f4cefa95f5d67338075e5d5e8894f84';
 // echo $code;
 
 $postdata = http_build_query(
@@ -33,16 +33,22 @@ $options  = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
 $context  = stream_context_create($options);
 $response = file_get_contents($json_url, false, $context);
 $response = json_decode($response);
-print_r($response->login);
-print_r('<img border = "10px" src="'.$response->avatar_url.'"><br>');
-echo "Hello<br>";
-print_r($response->name);
-
-$_SESSION['name'] = $response->name;
-$_SESSION['imgURL'] = $response->avatar_url;
-$_SESSION['username'] = $response->login;
-$_SESSION['logged_in'] = '1';
-header('location:chat.php');
+// print_r($response->login);
+// print_r('<img border = "10px" src="'.$response->avatar_url.'"><br>');
+// echo "Hello<br>";
+// print_r($response->name);
+if(isset($response->name))
+{
+    $_SESSION['name'] = $response->name;
+    $_SESSION['imgURL'] = $response->avatar_url;
+    $_SESSION['username'] = $response->login;
+    $_SESSION['logged_in'] = '1';
+    header('location:chat.php');
+}
+else
+{
+    header('location:index.php');
+}
 
 
 
