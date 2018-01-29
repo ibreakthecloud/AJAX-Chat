@@ -56,6 +56,7 @@ $imgURL = $_SESSION['imgURL'];
 	 <div class="col-md-2">
 	 	<!-- <div class="container"> -->
 			<!-- <h4><i class="input dot dot-online"></i> Online</h4> -->
+
   			<div class="input panel panel-success" id="panelUsers">
     			<div class="panel-heading"><h4><i class="dot dot-online"></i><i class="dot dot-offline"></i> Registered Users</h4></div>
     			
@@ -78,11 +79,13 @@ $imgURL = $_SESSION['imgURL'];
 	 <div class="col-md-6">
 	 <div class="form-group">
 
+
 		<!-- <textarea class = "form-control input" id="chats" cols="50" rows="20" readonly style="resize: none;"></textarea><br/> --> <!-- For All chats -->
 
 			<div class = "scroll" id="panelChat">
     			
   			</div>	
+
 
 
 
