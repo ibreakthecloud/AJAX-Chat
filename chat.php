@@ -10,10 +10,6 @@ $name = $_SESSION['name'];
 $username = $_SESSION['username'];
 $imgURL = $_SESSION['imgURL'];
 
-// echo $name;
-// echo $username;
-//echo $imgURL;
-
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +68,10 @@ $imgURL = $_SESSION['imgURL'];
 	 <div class="col-md-6">
 	 <div class="form-group">
 
-		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly ng-repeat="x in names"></textarea><br/> <!-- For All chats -->
+		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly style="resize: none;"></textarea><br/> <!-- For All chats -->
+		
+
+
 
 		<div class="input bottom-round"> <!-- input shadow start -->
 
@@ -80,7 +79,7 @@ $imgURL = $_SESSION['imgURL'];
 		<input class = "form-control form-control-lg" id="msg" type="text" name="msg" size="41" placeholder="Your Message" /><br/>  <!-- For MSG -->
 		</div>
 		
-		<input class="btn btn-danger input inputs" id = "btn" onclick="push()" type = "submit" value="send">
+		<input class="btn btn-danger input inputs" id = "btn" onclick="<?php if(isset($_SESSION['logged_in'])){echo 'push()';}else{header('location: index.php');}?>" type = "submit" value="send">
 		 <!-- input shadow end -->
 	 </div> <!-- form-group close -->
 	 </div><!--col-md-4 mid  -->
