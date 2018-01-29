@@ -1,7 +1,7 @@
 div.scroll 
 {
     /*background-color: #00FFFF;*/
-    height: 450px;
+    height: 400px;
     overflow-y: scroll;
     padding-left: 15px;
     padding-right: 15px;

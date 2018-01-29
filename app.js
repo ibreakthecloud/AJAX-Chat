@@ -1,7 +1,7 @@
 setInterval(refreshChat, 2000);
 var chatRequest = new XMLHttpRequest();
 var chatstr = '';
-chatRequest.open('GET','chat.json');
+chatRequest.open('GET','chat.json','false');
 chatRequest.onload = function() {
 	var chatData = JSON.parse(chatRequest.responseText);
 	for(var key in chatData)
@@ -10,6 +10,9 @@ chatRequest.onload = function() {
 	
 	}
 	document.getElementById('panelChat').innerHTML = chatstr;
+
+	var panelChat = document.getElementById('panelChat');
+		panelChat.scrollTop = panelChat.scrollHeight;
 };
 chatRequest.send();
 // var elem = document.getElementById('panelChat');
@@ -23,8 +26,8 @@ function refreshChat()
 	// 	panelUsers.reload();
 	// $('#panelUsers').empty();
 	// $('#panelUsers').load(document.URL +  ' #panelUsers');
-	var panelChat = document.getElementById('panelChat');
-		panelChat.scrollTop = panelChat.scrollHeight;
+	// var panelChat = document.getElementById('panelChat');
+	// 	panelChat.scrollTop = panelChat.scrollHeight;
 	var chatRequest = new XMLHttpRequest();
 	var chatstr = '';
 	chatRequest.open('GET','chat.json');
