@@ -1,6 +1,4 @@
 setInterval(refreshChat, 2000);
-
-
 var chatRequest = new XMLHttpRequest();
 var chatstr = '';
 chatRequest.open('GET','chat.json');
@@ -8,18 +6,25 @@ chatRequest.onload = function() {
 	var chatData = JSON.parse(chatRequest.responseText);
 	for(var key in chatData)
 	{
-		chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
-		 //console.log(chatData[key]);
+		chatstr = chatstr + '<div class="input panel panel-success"><div class="panel-heading"><h5><img class = "img-circle" src="images/user.png" height = "9%" width = "5%">'+chatData[key].name+'</h5></div>'+'<div class="panel-body">'+chatData[key].msg+'</div></div>';
+	
 	}
-	document.getElementById('chats').innerHTML = chatstr;
+	document.getElementById('panelChat').innerHTML = chatstr;
 };
 chatRequest.send();
-
-document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
+// var elem = document.getElementById('panelChat');
+// elem.scrollTop = elem.scrollHeight;
 ////////////////////////////////////////////////////////
 
-function refreshChat(){
-    
+function refreshChat()
+
+{
+	// var panelUsers = document.getElementById('panelUsers');
+	// 	panelUsers.reload();
+	// $('#panelUsers').empty();
+	// $('#panelUsers').load(document.URL +  ' #panelUsers');
+	var panelChat = document.getElementById('panelChat');
+		panelChat.scrollTop = panelChat.scrollHeight;
 	var chatRequest = new XMLHttpRequest();
 	var chatstr = '';
 	chatRequest.open('GET','chat.json');
@@ -27,10 +32,9 @@ function refreshChat(){
 	var chatData = JSON.parse(chatRequest.responseText);
 	for(var key in chatData)
 	{
-		chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
-		 //console.log(chatData[key]);
+		chatstr = chatstr + '<div class="input panel panel-success"><div class="panel-heading"><h5><img class = "img-circle" src="images/user.png" height = "9%" width = "5%"> '+chatData[key].name+'</h5></div>'+'<div class="panel-body">'+chatData[key].msg+'</div></div>';
 	}
-	document.getElementById('chats').innerHTML = chatstr;
+	document.getElementById('panelChat').innerHTML = chatstr;
 };
 chatRequest.send();
 //document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
@@ -58,18 +62,18 @@ function push()
 
 
 
-		var chatRequest = new XMLHttpRequest();
-		var chatstr = '';
-		chatRequest.open('GET','chat.json');
-		chatRequest.onload = function() {
-		var chatData = JSON.parse(chatRequest.responseText);
-		for(var key in chatData)
-		{
-			chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
-		}
-		document.getElementById('chats').innerHTML = chatstr;
-		};
-		chatRequest.send();
-		document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
+		// var chatRequest = new XMLHttpRequest();
+		// var chatstr = '';
+		// chatRequest.open('GET','chat.json');
+		// chatRequest.onload = function() {
+		// var chatData = JSON.parse(chatRequest.responseText);
+		// for(var key in chatData)
+		// {
+		// 	chatstr = chatstr + chatData[key].name + ': ' + chatData[key].msg + '\n' ;
+		// }
+		// document.getElementById('chats').innerHTML = chatstr;
+		// };
+		// chatRequest.send();
+		// document.getElementById("chats").scrollTop = document.getElementById("chats").scrollHeight;
 	}
 }

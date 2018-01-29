@@ -33,17 +33,39 @@ $options  = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
 $context  = stream_context_create($options);
 $response = file_get_contents($json_url, false, $context);
 $response = json_decode($response);
-// print_r($response->login);
-// print_r('<img border = "10px" src="'.$response->avatar_url.'"><br>');
-// echo "Hello<br>";
-// print_r($response->name);
 if(isset($response->name))
 {
     $_SESSION['name'] = $response->name;
     $_SESSION['imgURL'] = $response->avatar_url;
     $_SESSION['username'] = $response->login;
     $_SESSION['logged_in'] = '1';
-    header('location:chat.php');
+
+    //opening db connection and Pushing Users
+    $mysqli = new mysqli("localhost:3306","root","sudo","ajax-chat-db");
+    if($mysqli->connect_error)
+    {
+        $_SESSION['name'] = $mysqli->connect_error;
+    }
+
+    //checking if user exists
+    $sql_user_check = "SELECT * FROM ajax_chat_db_users WHERE username='".$_SESSION['username']."'";
+    $usercheck = $mysqli->query($sql_user_check);
+    // $_SESSION['name'] = $usercheck->num_rows;
+    if ($usercheck->num_rows == 0) 
+    {
+    
+    
+    $sql_insert = "INSERT INTO ajax_chat_db_users (username, name, imgurl) VALUES ('".$_SESSION['username']."', '".$_SESSION['name']."', '".$_SESSION['imgURL']."')";   
+        // $mysqli->query($sql_insert);
+        if($mysqli->query($sql_insert) === true){
+            // echo "Records inserted successfully.";
+        } else{
+            // echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+            $_SESSION['name'] = $mysqli->error;
+        }
+        $mysqli->close();
+    }
+        header('location:chat.php');
 }
 else
 {
