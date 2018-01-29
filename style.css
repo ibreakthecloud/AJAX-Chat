@@ -1,3 +1,14 @@
+div.scroll 
+{
+    /*background-color: #00FFFF;*/
+    height: 450px;
+    overflow-y: scroll;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+
+}
+
 .top-bar
 {
 	top: 0px;

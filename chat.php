@@ -56,11 +56,22 @@ $imgURL = $_SESSION['imgURL'];
 	 <div class="col-md-2">
 	 	<!-- <div class="container"> -->
 			<!-- <h4><i class="input dot dot-online"></i> Online</h4> -->
-  			<div class="input panel panel-success">
-    			<div class="panel-heading"><h4><i class="dot dot-online"></i><i class="dot dot-offline"></i> Online</h4></div>
+
+  			<div class="input panel panel-success" id="panelUsers">
+    			<div class="panel-heading"><h4><i class="dot dot-online"></i><i class="dot dot-offline"></i> Registered Users</h4></div>
     			
-    			<div class="panel-body"><i class="dot dot-online"></i> User 1</div>
-    			<div class="panel-body"><i class="dot dot-online"></i> User 2</div>
+
+    			<?php
+    				
+    				$mysqli = new mysqli("localhost:3306","root","sudo","ajax-chat-db");
+    				$sql_user_check = "SELECT * FROM ajax_chat_db_users";
+    			    $usercheck = $mysqli->query($sql_user_check);
+    				$result = $usercheck->num_rows;
+    				while($row = mysqli_fetch_array($usercheck))
+    				{
+    					echo '<div class="panel-body"><div class="container"><img class = "img-circle" src="' .$row["imgurl"].'" height = "20%" width = "40px"></div> '.$row["name"].'</div><hr>';
+    				}
+    			?>
   			</div>	 		
 	 	<!-- </div> -->
 	 </div> <!-- Empty Col 1 -->
@@ -68,8 +79,13 @@ $imgURL = $_SESSION['imgURL'];
 	 <div class="col-md-6">
 	 <div class="form-group">
 
-		<textarea class = "form-control input" id="chats" cols="50" rows="20" readonly style="resize: none;"></textarea><br/> <!-- For All chats -->
-		
+
+		<!-- <textarea class = "form-control input" id="chats" cols="50" rows="20" readonly style="resize: none;"></textarea><br/> --> <!-- For All chats -->
+
+			<div class = "scroll" id="panelChat">
+    			
+  			</div>	
+
 
 
 
