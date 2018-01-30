@@ -51,21 +51,37 @@ if(isset($response->name))
     $sql_user_check = "SELECT * FROM ajax_chat_db_users WHERE username='".$_SESSION['username']."'";
     $usercheck = $mysqli->query($sql_user_check);
     // $_SESSION['name'] = $usercheck->num_rows;
-    if ($usercheck->num_rows == 0) 
+    if ($usercheck->num_rows === 0) 
     {
     
-    
-    $sql_insert = "INSERT INTO ajax_chat_db_users (username, name, imgurl) VALUES ('".$_SESSION['username']."', '".$_SESSION['name']."', '".$_SESSION['imgURL']."')";   
-        // $mysqli->query($sql_insert);
+        // $row = mysqli_fetch_array($usercheck);
+       $_SESSION['logincount'] = 0;
+     $sql_insert = "INSERT INTO ajax_chat_db_users (username, name, imgurl,logincount) VALUES ('".$_SESSION['username']."', '".$_SESSION['name']."', '".$_SESSION['imgURL']."','0')";   
+        
         if($mysqli->query($sql_insert) === true){
             // echo "Records inserted successfully.";
         } else{
             // echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
             $_SESSION['name'] = $mysqli->error;
         }
-        $mysqli->close();
+        
     }
+    else
+    {
+       // $sql_logincount = "SELECT * FROM ajax_chat_db_users WHERE username='".$_SESSION['username']."'";
+       // $logincount = $mysqli->query($sql_logincount);
+       $row = mysqli_fetch_array($usercheck);
+       $_SESSION['logincount'] = $row['logincount'];
+       $count = $row['logincount'];
+       $count++;
+        $sql_insert_logincount = "UPDATE ajax_chat_db_users SET logincount = '".$count."' WHERE username ='".$_SESSION['username']."' ";
+        if($mysqli->query($sql_insert_logincount) != true)
+        {
+            $_SESSION['name'] = "myeeror :".$mysqli->error; 
+        }
+   }
         header('location:chat.php');
+        $mysqli->close();
 }
 else
 {
