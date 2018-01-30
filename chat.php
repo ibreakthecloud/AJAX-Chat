@@ -9,6 +9,7 @@ if (!isset($logged_in))
 $name = $_SESSION['name'];
 $username = $_SESSION['username'];
 $imgURL = $_SESSION['imgURL'];
+$logincount = $_SESSION['logincount']; 
 
 ?>
 
@@ -29,6 +30,7 @@ $imgURL = $_SESSION['imgURL'];
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="snackbar.js"></script>
 
 
 	<script src="app.js"></script>
@@ -41,7 +43,7 @@ $imgURL = $_SESSION['imgURL'];
 		<div class="col-md-6">
 			&nbsp;<img class = "img-circle" src="<?php echo $imgURL ?>" height = "25%" width = "12%">
 		<!-- <div class="col-md-4"> -->
-			<kbd>Hello, <?php echo $name; ?></kbd>
+			<kbd>Hello, <?php echo $name; ?></kbd> <div class="badge">Total Login: <?php echo $logincount ?></div><div id="snackbar">Welcome <?php echo $name; ?>, this is your first time on AJAX-Chat. Enjoy!</div>
 		<!-- </div> -->
 		</div>
 		<div class="col-md-4"></div>
@@ -72,6 +74,8 @@ $imgURL = $_SESSION['imgURL'];
     					echo '<div class="panel-body"><div class="container"><img class = "img-circle" src="' .$row["imgurl"].'" height = "20%" width = "40px"></div> '.$row["name"].'</div><hr>';
     				}
     			?>
+
+    			
   			</div>	 		
 	 	<!-- </div> -->
 	 </div> <!-- Empty Col 1 -->
@@ -105,8 +109,19 @@ $imgURL = $_SESSION['imgURL'];
 <script type="text/javascript">
 	function logout() {
 		window.location.assign('logout.php');
+
 	}
+
 </script>
-	
+<?php 
+	if ($logincount==0) 
+	{
+		echo '<script type="text/javascript">',
+     'snackbarFunc();',
+     '</script>'
+;
+	}
+?>
+
 </body>
 </html>
